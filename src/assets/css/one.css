@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap");
+body {
+    font-family: "Quicksand", sans-serif !important;
+    background-color: #020C16 !important;
+}
+
+/* navbar */
+
+.navbar {
+    background-color: #0d2031 !important;
+}
+
+/* Slider */
+
+.slick-slide img {
+    width: 100%;
+}
+
+/* header */
+
+.jumbotron {
+    background-image: url(../img/slider-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+
+/* search */
+
+.form-control {
+    background-color: #213547 !important;
+    font-weight: bold !important;
+    color: #BBBBBB !important;
+}
+
+.input-group-text {
+    background-color: #213547 !important;
+    font-family: "Quicksand", sans-serif;
+    font-weight: bold !important;
+    color: #BBBBBB !important;
+}
+
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none;
+}
+
+/* card movie , coming soon and header*/
+
+.series img {
+    width: 100%;
+    background-color: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.73) 100%) !important;
+}
+
+.card {
+    background: transparent !important;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.movies-list .ml-item .mli-quality {
+    background: #232323;
+    color: #E9E9E9;
+    font-size: 12px;
+    font-weight: 700;
+    height: auto;
+    line-height: normal;
+    padding: 4px 6px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 0 0 0 -15px;
+    width: auto;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.rating-durasi {
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.52);
+    font-weight: 700;
+    height: auto;
+    line-height: normal;
+    color: #E9E9E9;
+    padding: 4px 6px;
+    height: auto;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    border-radius: 0 0 0 -15px;
+    width: auto;
+    border-radius: 0px 0px 10px 0px;
+}
+
+.tag {
+    text-align: center;
+    margin-top: -50px;
+    font-weight: 600;
+    color: #F8F8F8;
+    background-color: #213547b8;
+}
+
+/* routerlink */
+
+.routerLink {
+    text-decoration: none !important;
+}
+
+.which {
+    background-color: #06435F !important;
+    color: #E9E9E9 !important;
+}
+
+.mli-rating {
+    color: #E9E9E9 !important;
+}
+
+/* coming soon */
+
+.gumit span {
+    font-weight: 700;
+    font-style: normal;
+    color: rgba(187, 187, 187, 0.94);
+}
+
+/* about */
+
+.about {
+    margin-bottom: 50px;
+}
+
+.abouts {
+    font-weight: 700 !important;
+    color: #BBBBBB;
+}
+
+.suites {
+    color: #949494;
+    font-weight: 600;
+}
+
+.dorm {
+    color: #939393;
+    font-weight: 600;
+}
+
+/* comming soon  */
+
+.ends {
+    background: transparent;
+}
+
+.then {
+    margin-top: 70px !important;
+}
+
+.celebrity {
+    color: white;
+    margin-left: 20px;
+}
+
+/* footer */
+
+footer {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.56) 32.29%);
+}
+
+.labs {
+    color: #E9E9E9;
+    font-weight: bold;
+}
+
+.hire p {
+    column-rule: #ADADAD;
+    font-weight: bold;
+}
+
+.white {
+    color: #CECECE;
+    font-weight: bold;
+}
+
+.fires {
+    background-image: url(../img/slider-bg2.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+.list-unstyled {
+    color: #939393;
+    font-weight: 600;
+}
+
+.sanst {
+    font-weight: 700;
+}
+
+.sans {
+    text-decoration: none;
+    color: #939393;
+    font-weight: 600;
+}
+
+.hire {
+    color: #ADADAD;
+    font-weight: bold;
+}
+
+/* // Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    .card {
+        width: 100%;
+    }
+}
+
+/* // X-Small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    .rating-durasi .mli-rating .mli-quality {
+        font-size: 3vw !important;
+    }
+    .tag {
+        font-size: 3vw;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    .rating-durasi .mli-rating .mli-quality {
+        font-size: 1.5vw !important;
+    }
+    .tag {
+        font-size: 1.5vw;
+    }
+    .card {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    .rating-durasi .mli-rating .mli-quality {
+        font-size: 1.5vw !important;
+    }
+    .tag {
+        font-size: 1.5vw;
+    }
+    .card {
+        width: 100%;
+    }
+}

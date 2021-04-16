@@ -1,0 +1,61 @@
+.navbar {
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+}
+
+@media (max-width: 575.98px) {
+    .navbar {
+        display: flex;
+        justify-content: center !important;
+    }
+}
+
+.nav .links a {
+    text-decoration: none;
+    list-style: none;
+    margin-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #bbbbbb;
+}
+
+.nav .links a:hover {
+    color: #bb9200;
+    font-weight: 700;
+}
+
+.router {
+    text-decoration: none;
+}
+
+/* people */
+
+.bg-darks {
+    background-color: #213547b8;
+}
+
+
+.text-darks:hover {
+    color: #ffffffb8;
+}
+
+.name, .acting {
+    color: #BBBBBB;
+    font-weight: 600;
+}
+
+.text-darks {
+    color: #cfcfcfb8;
+}
+
+.btn-lock {
+    color: rgb(211, 211, 211) !important;
+}
