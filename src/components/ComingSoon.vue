@@ -54,8 +54,6 @@
 </template>
 
 <script>
-import $ from "jquery";
-
 export default {
   name: "coming-soon",
   data() {
@@ -72,28 +70,6 @@ export default {
         arrows: false,
       },
     };
-  },
-  created() {
-    const self = this;
-    const settings = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://api.themoviedb.org/3/trending/all/day?api_key=f8296e1f43041e1ad8fbb6ed38ba32dd",
-      method: "GET",
-      headers: {
-        "content-type": "application/json;charset=utf-8",
-        authorization:
-          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-      },
-      processData: false,
-      data: "{}",
-    };
-
-    $.ajax(settings).done(function (response) {
-      self.articles = response.results;
-      console.log(self.articles);
-    });
   },
 };
 </script>

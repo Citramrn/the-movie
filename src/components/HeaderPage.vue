@@ -3,8 +3,8 @@
     <div class="container">
       <VueSlickCarousel
         class="row sliders"
-        v-if="movies.length"
         v-bind="slickOptions"
+        v-if="movies.length"
       >
         <div class="col-sm-3" v-for="(movie, index) in movies" :key="index">
           <router-link :to="'/movie/' + movie.id" class="routerLink">
@@ -19,8 +19,7 @@
                   <!-- <span class="mli-quality hd text-white">HD</span> -->
                   <div class="rating-durasi">
                     <span class="mli-rating"
-                      ><i class="fa fa-star"></i
-                      >{{ movie.moviesvote_average }}</span
+                      ><i class="fa fa-star"></i>{{ movie.vote_average }}</span
                     >
                     &emsp;
                     <span class="mli-durasi"
@@ -40,15 +39,13 @@
 </template>
 
 <script>
-import $ from "jquery";
-//let apiKey = "f8296e1f43041e1ad8fbb6ed38ba32dd";
-
+let apiKey = `f8296e1f43041e1ad8fbb6ed38ba32dd`;
+import axios from "axios";
 export default {
   name: "header-page",
   data() {
     return {
-      id: this.$route.params.id,
-      movies: {},
+      movies: [],
       slickOptions: {
         dots: true,
         autoplay: true,
@@ -63,50 +60,16 @@ export default {
       },
     };
   },
-  // methods: {
-  //   async getMovie() {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`,
-  //         {
-  //           method: "GET",
-  //           headers: { "Content-type": "application/json;charset=utf-8" },
-  //           authorization:
-  //             "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-  //         }
-  //       ).then((res) => console.log(res));
-  //       const data = await response.json();
-  //       this.movies = [...this.movies, data];
-  //     } catch (error) {
-  //       console.error();
-  //     }
-  //   },
-  // },
-
-  // mounted() {
-  //   this.getMovie();
-  // },
+  methods: {
+    async getTrendingMovie() {
+      let film = await axios.get(
+        `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`
+      );
+      this.movies = film.data.results;
+    },
+  },
   created() {
-    const self = this;
-    const settings = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://api.themoviedb.org/3/trending/all/day?api_key=f8296e1f43041e1ad8fbb6ed38ba32dd",
-      method: "GET",
-      headers: {
-        "content-type": "application/json;charset=utf-8",
-        authorization:
-          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-      },
-      processData: false,
-      data: "{}",
-    };
-
-    $.ajax(settings).done(function (response) {
-      self.movies = response.results;
-      console.log(self.movies);
-    });
+    this.getTrendingMovie();
   },
 };
 </script>

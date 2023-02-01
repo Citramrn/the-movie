@@ -153,7 +153,6 @@
 
 
 <script>
-import $ from "jquery";
 //let apiKey = "f8296e1f43041e1ad8fbb6ed38ba32dd";
 
 export default {
@@ -188,51 +187,6 @@ export default {
         },
       ],
     };
-  },
-  // methods: {
-  //   async getMovie() {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`,
-  //         {
-  //           method: "GET",
-  //           headers: { "Content-type": "application/json;charset=utf-8" },
-  //           authorization:
-  //             "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-  //         }
-  //       ).then((res) => console.log(res));
-  //       const data = await response.json();
-  //       this.movies = [...this.movies, data];
-  //     } catch (error) {
-  //       console.error();
-  //     }
-  //   },
-  // },
-
-  // mounted() {
-  //   this.getMovie();
-  // },
-  created() {
-    const self = this;
-    const settings = {
-      async: true,
-      crossDomain: true,
-      url:
-        "https://api.themoviedb.org/3/trending/all/day?api_key=f8296e1f43041e1ad8fbb6ed38ba32dd",
-      method: "GET",
-      headers: {
-        "content-type": "application/json;charset=utf-8",
-        authorization:
-          "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-      },
-      processData: false,
-      data: "{}",
-    };
-
-    $.ajax(settings).done(function (response) {
-      self.movies = response.results;
-      console.log(self.movies);
-    });
   },
 };
 </script>

@@ -1,23 +1,23 @@
 <template>
   <div class="wrap-content">
     <appNav :nav-links="navLinks" />
-    <appHeader />
-    <appComing />
-    <appShow />
+    <appHeader :movieHeader="movieHeader"/>
+    <appComing :movieComing="movieComing" />
+    <appShow :movieTvshow="movieTvshow" />
     <appAbout />
     <appContact />
   </div>
 </template>
 
 <script>
-//import axios from "axios";
 import NavPage from "./NavPage";
 import HeaderPage from "./HeaderPage";
 import ComingSoon from "./ComingSoon";
 import TvShow from "./TvShow";
 import AboutThink from "./AboutThink";
 import ContactFooter from "./ContactFooter";
-//const apiKey = `f8296e1f43041e1ad8fbb6ed38ba32dd`;
+const apiKey = `f8296e1f43041e1ad8fbb6ed38ba32dd`;
+import axios from "axios";
 
 export default {
   components: {
@@ -44,31 +44,48 @@ export default {
           path: "/people",
         },
       ],
-      // id: this.$route.params.imdb_id,
+
+      movieHeader: {},
+      movieComing: [],
+      movieTvshow: [],
     };
   },
-  // methods: {
-  //   async getMovie() {
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.themoviedb.org/3/movie/${this.$route.params.imdb_id}?api_key=${apiKey}&language=en-US`,
-  //         {
-  //           method: "GET",
-  //           headers: { "Content-type": "application/json;charset=utf-8" },
-  //           authorization:
-  //             "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODI5NmUxZjQzMDQxZTFhZDhmYmI2ZWQzOGJhMzJkZCIsInN1YiI6IjYwMjkyODViN2U0MDNkMDAzZjNkMmRmYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.P5y4Zl-taIFRfIIJO87FdAdN9ELLW3Ny457ohGJo_6c",
-  //         }
-  //       ).then((res) => console.log(res));
-  //       const data = await response.json();
-  //       this.movies = [...this.movies, data];
-  //     } catch (error) {
-  //       console.error();
-  //     }
-  //   },
-  // },
 
-  // mounted() {
-  //   this.getMovie();
-  // },
+  methods: {
+    getHeader() {
+      return axios.get(
+        `https://api.themoviedb.org/3/movie/${this.$route.params.id}?api_key=${apiKey}&language=en-US`
+      );
+    },
+
+    getComingsoon() {
+      return axios.get(
+        `https://api.themoviedb.org/3/movie/${this.$route.params.id}/lists?api_key=${apiKey}&language=en-US`
+      );
+    },
+
+    getTvshow() {
+      return axios.get(
+        `https://api.themoviedb.org/3/tv/${this.$route.params.id}?api_key=${apiKey}&language=en-US`
+      );
+    },
+
+    async getMovies() {
+      let [movieHeader, movieComing, movieTvshow] = await Promise.all([
+        this.movieHeader,
+        this.getComingsoon,
+        this.getTvshow,
+      ]);
+
+      this.movieHeader = movieHeader.data;
+      this.movieComing = movieComing.data;
+      this.movieTvshow = movieTvshow.data;
+    },
+  },
+  created() {
+    this.getMovies();
+  },
 };
 </script>
+
+
